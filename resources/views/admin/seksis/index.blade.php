@@ -56,16 +56,22 @@
                                     <h6 class="text-md mb-0 fw-medium flex-grow-1">{{ $seksi->name }}</h6>
                                 </div>
                             </td>
-                            <td> <span
-                                    class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">{{ ucfirst($seksi->status) }}</span>
+                            <td>
+                                @if ($seksi->status == "active")
+                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">{{ ucfirst($seksi->status) }}</span>
+                                @else
+                                <span class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">{{ ucfirst($seksi->status) }}</span>
+
+                                @endif
+
                             </td>
                             <td>
-                                <a href="javascript:void(0)"
+                                <a href="#"
                                     class="w-32-px h-32-px bg-primary-light text-primary-600 rounded-circle d-inline-flex align-items-center justify-content-center">
                                     <iconify-icon icon="iconamoon:eye-light"></iconify-icon>
                                     {{-- <i class="fa fa-eye"></i> --}}
                                 </a>
-                                <a href="javascript:void(0)"
+                                <a href="{{ route('seksi.edit', $seksi->id) }}"
                                     class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center">
                                     <iconify-icon icon="lucide:edit"></iconify-icon>
                                 </a>

@@ -62,6 +62,11 @@ class SeksiController extends Controller
     public function edit(string $id)
     {
         //
+        $data['page'] = 'Seksi';
+        $data['judul_page'] = 'Edit Seksi';
+         $data['seksi'] = Seksi::find($id);
+
+        return view('admin.seksis.edit', $data);
     }
 
     /**
@@ -70,6 +75,18 @@ class SeksiController extends Controller
     public function update(Request $request, string $id)
     {
         //
+          $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'status' => 'required|string',
+        ]);
+
+
+        // Jika Berhasil
+        $seksi = Seksi::findOrFail($id);
+        $seksi->update($validated);
+
+
+        return redirect()->route('seksi.index')->with('success', 'Seksi berhasil diupdate.');
     }
 
     /**
