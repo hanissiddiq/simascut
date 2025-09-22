@@ -26,6 +26,10 @@ class SeksiController extends Controller
     public function create()
     {
         //
+        $data['page'] = 'Seksi';
+        $data['judul_page'] = 'Create Seksi';
+
+        return view('admin.seksis.create', $data);
     }
 
     /**
@@ -34,6 +38,14 @@ class SeksiController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'status' => 'required|string',
+        ]);
+        //         //Jika Berhasil
+        Seksi::create($validated);
+
+        return redirect()->route('seksi.index')->with('success', 'Seksi Berhasil Ditambahkan.');
     }
 
     /**
@@ -65,6 +77,8 @@ class SeksiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Jika Berhasil
+        Seksi::destroy($id);
+        return redirect()->route('seksi.index')->with('success', 'Seksi berhasil dihapus.');
     }
 }

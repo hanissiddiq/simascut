@@ -19,6 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/seksi', [SeksiController::class, 'index'])->name('seksi.index');
+Route::get('/seksi/create', [SeksiController::class, 'create'])->name('seksi.create');
 Route::post('/seksi', [SeksiController::class, 'store'])->name('seksi.store');
 Route::get('/seksi/show/{id}', [SeksiController::class, 'show'])->name('seksi.show');
 Route::get('/seksi/edit/{id}', [SeksiController::class, 'edit'])->name('seksi.edit');

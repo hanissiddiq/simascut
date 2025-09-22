@@ -236,7 +236,7 @@
           </li>
         </ul>
       </li>
-      <li class="sidebar-menu-group-title">Application</li>
+      <li class="sidebar-menu-group-title">Data Master</li>
       <li>
         <a href="email.html">
           <iconify-icon icon="mage:email" class="menu-icon"></iconify-icon>
