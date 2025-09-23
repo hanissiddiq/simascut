@@ -32,6 +32,7 @@ Route::get('/jabatan/create', [JabatanController::class, 'create'])->name('jabat
 Route::post('/jabatan', [JabatanController::class, 'store'])->name('jabatan.store');
 Route::get('/jabatan/edit/{id}', [JabatanController::class, 'edit'])->name('jabatan.edit');
 Route::put('/jabatan/update/{id}', [JabatanController::class, 'update'])->name('jabatan.update');
+Route::delete('/jabatan/delete/{id}', [JabatanController::class, 'destroy'])->name('jabatan.destroy');
 
 
 require __DIR__.'/auth.php';

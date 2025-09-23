@@ -96,5 +96,7 @@ class JabatanController extends Controller
     public function destroy(string $id)
     {
         //
+        Jabatan::destroy($id);
+        return redirect()->route('jabatan.index')->with('success', 'Jabatan berhasil dihapus.');
     }
 }

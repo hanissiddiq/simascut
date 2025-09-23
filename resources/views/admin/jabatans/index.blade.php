@@ -77,7 +77,7 @@
                                         title="Edit">
                                     <iconify-icon icon="lucide:edit"></iconify-icon>
                                 </a>
-                                <form action="{{ route('seksi.destroy', $jabatan->id) }}" method="POST"
+                                <form action="{{ route('jabatan.destroy', $jabatan->id) }}" method="POST"
                                     onsubmit="return confirm('Yakin Menghapus Data?');" class="d-inline-flex">
                                     @csrf
                                     @method('DELETE')
