@@ -72,7 +72,7 @@
                                     <iconify-icon icon="iconamoon:eye-light"></iconify-icon>
                                     {{-- <i class="fa fa-eye"></i> --}}
                                 </a>
-                                <a href="{{ route('seksi.edit', $jabatan->id) }}"
+                                <a href="{{ route('jabatan.edit', $jabatan->id) }}"
                                     class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center" data-bs-toggle="tooltip"
                                         title="Edit">
                                     <iconify-icon icon="lucide:edit"></iconify-icon>

@@ -62,6 +62,11 @@ class JabatanController extends Controller
     public function edit(string $id)
     {
         //
+        $data['page'] = 'Jabatan';
+        $data['judul_page'] = 'Edit Jabatan';
+         $data['jabatan'] = Jabatan::find($id);
+
+        return view('admin.jabatans.edit', $data);
     }
 
     /**
@@ -70,6 +75,19 @@ class JabatanController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'status' => 'required|string',
+        ]);
+
+
+        // Jika Berhasil
+        $jabatan = Jabatan::findOrFail($id);
+        $jabatan->update($validated);
+
+
+        return redirect()->route('jabatan.index')->with('success', 'Jabatan berhasil diupdate.');
+
     }
 
     /**
