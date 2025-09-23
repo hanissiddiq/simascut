@@ -25,7 +25,7 @@
                             </ul>
                         </div>
                     @endif
-            <a href="{{ route('seksi.create') }}" class="btn btn-primary ">Tambah Seksi</a>
+            <a href="{{ route('jabatan.create') }}" class="btn btn-primary ">Tambah Jabatan</a>
         </div>
         <div class="card-body table-responsive">
             <table class="table bordered-table mb-0" id="dataTable" data-page-length='10'>
@@ -33,13 +33,13 @@
                     <tr>
 
                         <th scope="col">No</th>
-                        <th scope="col">Nama Seksi</th>
+                        <th scope="col">Nama Jabatan</th>
                         <th scope="col">Status</th>
                         <th scope="col" width=30>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($seksis as $seksi)
+                    @forelse ($jabatans as $jabatan)
                         <tr>
                             <td>
                                 <div class="form-check style-check d-flex align-items-center">
@@ -53,14 +53,14 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     {{-- <img src="{{asset('wowdash/assets/images/user-list/user-list1.png')}}" alt="" class="flex-shrink-0 me-12 radius-8"> --}}
-                                    <h6 class="text-md mb-0 fw-medium flex-grow-1">{{ $seksi->name }}</h6>
+                                    <h6 class="text-md mb-0 fw-medium flex-grow-1">{{ $jabatan->name }}</h6>
                                 </div>
                             </td>
                             <td>
-                                @if ($seksi->status == "active")
-                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">{{ ucfirst($seksi->status) }}</span>
+                                @if ($jabatan->status == "active")
+                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">{{ ucfirst($jabatan->status) }}</span>
                                 @else
-                                <span class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">{{ ucfirst($seksi->status) }}</span>
+                                <span class="bg-danger-focus text-danger-main px-24 py-4 rounded-pill fw-medium text-sm">{{ ucfirst($jabatan->status) }}</span>
 
                                 @endif
 
@@ -72,12 +72,12 @@
                                     <iconify-icon icon="iconamoon:eye-light"></iconify-icon>
                                     {{-- <i class="fa fa-eye"></i> --}}
                                 </a>
-                                <a href="{{ route('seksi.edit', $seksi->id) }}"
+                                <a href="{{ route('jabatan.edit', $jabatan->id) }}"
                                     class="w-32-px h-32-px bg-success-focus text-success-main rounded-circle d-inline-flex align-items-center justify-content-center" data-bs-toggle="tooltip"
                                         title="Edit">
                                     <iconify-icon icon="lucide:edit"></iconify-icon>
                                 </a>
-                                <form action="{{ route('seksi.destroy', $seksi->id) }}" method="POST"
+                                <form action="{{ route('jabatan.destroy', $jabatan->id) }}" method="POST"
                                     onsubmit="return confirm('Yakin Menghapus Data?');" class="d-inline-flex">
                                     @csrf
                                     @method('DELETE')
@@ -93,7 +93,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3">Tidak ada data seksi.</td>
+                            <td colspan="3">Tidak ada data jabatan.</td>
                         </tr>
                     @endforelse
 

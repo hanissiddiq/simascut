@@ -250,6 +250,12 @@
         </a>
       </li>
       <li>
+        <a href="{{ route('jabatan.index') }}">
+          <iconify-icon icon="lucide:armchair" class="menu-icon"></iconify-icon>
+          <span>Jabatan</span>
+        </a>
+      </li>
+      <li>
         <a href="chat-message.html">
           <iconify-icon icon="bi:chat-dots" class="menu-icon"></iconify-icon>
           <span>Chat</span>
