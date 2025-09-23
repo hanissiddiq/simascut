@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeksiController;
+use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,10 @@ Route::get('/seksi/show/{id}', [SeksiController::class, 'show'])->name('seksi.sh
 Route::get('/seksi/edit/{id}', [SeksiController::class, 'edit'])->name('seksi.edit');
 Route::put('/seksi/update/{id}', [SeksiController::class, 'update'])->name('seksi.update');
 Route::delete('/seksi/delete/{id}', [SeksiController::class, 'destroy'])->name('seksi.destroy');
+
+Route::get('/jabatan', [JabatanController::class, 'index'])->name('jabatan.index');
+Route::get('/jabatan/create', [JabatanController::class, 'create'])->name('jabatan.create');
+Route::post('/jabatan', [JabatanController::class, 'store'])->name('jabatan.store');
 
 
 require __DIR__.'/auth.php';
