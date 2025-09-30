@@ -3,15 +3,23 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeksiController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\CutiController;
+use App\Http\Controllers\RequestCutiController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('admin.dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -33,6 +41,23 @@ Route::post('/jabatan', [JabatanController::class, 'store'])->name('jabatan.stor
 Route::get('/jabatan/edit/{id}', [JabatanController::class, 'edit'])->name('jabatan.edit');
 Route::put('/jabatan/update/{id}', [JabatanController::class, 'update'])->name('jabatan.update');
 Route::delete('/jabatan/delete/{id}', [JabatanController::class, 'destroy'])->name('jabatan.destroy');
+
+Route::get('/cuti', [CutiController::class, 'index'])->name('cuti.index');
+Route::get('/cuti/create', [CutiController::class, 'create'])->name('cuti.create');
+Route::post('/cuti', [CutiController::class, 'store'])->name('cuti.store');
+Route::get('/cuti/edit/{id}', [CutiController::class, 'edit'])->name('cuti.edit');
+Route::put('/cuti/update/{id}', [CutiController::class, 'update'])->name('cuti.update');
+Route::delete('/cuti/delete/{id}', [CutiController::class, 'destroy'])->name('cuti.destroy');
+
+Route::get('/request_cuti', [RequestCutiController::class, 'index'])->name('request_cuti.index');
+Route::get('/request_cuti/create', [RequestCutiController::class, 'create'])->name('request_cuti.create');
+Route::post('/request_cuti', [RequestCutiController::class, 'store'])->name('request_cuti.store');
+Route::get('/request_cuti/show/{id}', [RequestCutiController::class, 'show'])->name('request_cuti.show');
+Route::get('/request_cuti/edit/{id}', [RequestCutiController::class, 'edit'])->name('request_cuti.edit');
+Route::put('/request_cuti/update/{id}', [RequestCutiController::class, 'update'])->name('request_cuti.update');
+Route::delete('/request_cuti/delete/{id}', [RequestCutiController::class, 'destroy'])->name('request_cuti.destroy');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';
