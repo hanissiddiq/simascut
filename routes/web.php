@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SeksiController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\CutiController;
+use App\Http\Controllers\RequestCutiController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,14 @@ Route::post('/cuti', [CutiController::class, 'store'])->name('cuti.store');
 Route::get('/cuti/edit/{id}', [CutiController::class, 'edit'])->name('cuti.edit');
 Route::put('/cuti/update/{id}', [CutiController::class, 'update'])->name('cuti.update');
 Route::delete('/cuti/delete/{id}', [CutiController::class, 'destroy'])->name('cuti.destroy');
+
+Route::get('/request_cuti', [RequestCutiController::class, 'index'])->name('request_cuti.index');
+Route::get('/request_cuti/create', [RequestCutiController::class, 'create'])->name('request_cuti.create');
+Route::post('/request_cuti', [RequestCutiController::class, 'store'])->name('request_cuti.store');
+Route::get('/request_cuti/show/{id}', [RequestCutiController::class, 'show'])->name('request_cuti.show');
+Route::get('/request_cuti/edit/{id}', [RequestCutiController::class, 'edit'])->name('request_cuti.edit');
+Route::put('/request_cuti/update/{id}', [RequestCutiController::class, 'update'])->name('request_cuti.update');
+Route::delete('/request_cuti/delete/{id}', [RequestCutiController::class, 'destroy'])->name('request_cuti.destroy');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
