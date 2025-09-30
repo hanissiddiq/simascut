@@ -76,6 +76,13 @@ class RequestCutiController extends Controller
     public function edit(string $id)
     {
         //
+         $data['page'] = 'Request Cuti';
+        $data['judul_page'] = 'Update Request Cuti';
+        $data['request_cutis'] = RequestCuti::find($id);
+        $data['users'] = User::all()->sortBy('name');
+        $data['cutis'] = Cuti::all()->sortBy('name');
+
+        return view('admin.request_cutis.edit', $data);
     }
 
     /**
@@ -84,6 +91,18 @@ class RequestCutiController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'cuti_id' => 'required|exists:cutis,id',
+            'reason' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
+            'status' => 'required|string',
+        ]);
+
+        $request_cuti = RequestCuti::find($id);
+        $request_cuti->update($validated);
+        return redirect()->route('request_cuti.index')->with('success', 'Request Cuti berhasil diupdate.');
     }
 
     /**
@@ -92,5 +111,7 @@ class RequestCutiController extends Controller
     public function destroy(string $id)
     {
         //
+        RequestCuti::destroy($id);
+        return redirect()->route('request_cuti.index')->with('success', 'Request Cuti berhasil dihapus.');
     }
 }
