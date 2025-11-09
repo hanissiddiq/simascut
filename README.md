@@ -1,6 +1,8 @@
 
 # Sistem Pengajuan Cuti - Laravel 12
 
+Source https://chatgpt.com/share/68d00ca3-78ac-8008-8d2e-867e526322e2
+
 Sistem Pengajuan Cuti ini dibangun menggunakan Laravel 12 dan PHP 8.2, yang bertujuan untuk mempermudah proses pengajuan dan persetujuan cuti bagi pegawai di perusahaan. Sistem ini memungkinkan pegawai untuk mengajukan cuti, yang kemudian akan disetujui oleh Kepala Seksi dan HRD. Setelah persetujuan akhir, sistem akan menghasilkan surat cuti dalam format Word secara otomatis.
 
 ## Fitur
@@ -125,6 +127,10 @@ Pastikan Anda memiliki PHP 8.2 atau lebih tinggi dan Composer terinstal di kompu
 ## Kontribusi
 
 Jika Anda ingin berkontribusi pada proyek ini, silakan buat **fork** repositori ini dan buat **pull request** dengan penjelasan perubahan yang dilakukan.
+
+##accunt
+user: admin@simascut.com
+Pass: mantap
 
 ## Lisensi
 

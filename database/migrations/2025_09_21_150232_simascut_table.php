@@ -41,6 +41,7 @@ return new class extends Migration
             $table->integer('used_leave')->default(0); // Menghitung sisa cuti yang sudah digunakan
             $table->integer('remaining_leave')->default(12); // Cuti tahunan
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('request_cutis', function (Blueprint $table) {
@@ -54,6 +55,7 @@ return new class extends Migration
             // $table->text('status', ['Pending', 'Approved by Seksi', 'Approved by HRD', 'Rejected']);
             $table->text('status'); //['Pending', 'Approved by Seksi', 'Approved by HRD', 'Rejected']);
             $table->timestamps();
+            $table->softDeletes();
         });
 
 

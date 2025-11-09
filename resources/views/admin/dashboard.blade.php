@@ -256,7 +256,7 @@
           <span>Jabatan</span>
         </a>
       </li>
-      <li>
+      {{-- <li>
         <a href="chat-message.html">
           <iconify-icon icon="bi:chat-dots" class="menu-icon"></iconify-icon>
           <span>Chat</span>
@@ -345,9 +345,9 @@
             <a href="portfolio.html"><i class="ri-circle-fill circle-icon text-warning-main w-auto"></i> Portfolios</a>
           </li>
         </ul>
-      </li>
+      </li> --}}
 
-      <li class="sidebar-menu-group-title">UI Elements</li>
+      {{-- <li class="sidebar-menu-group-title">UI Elements</li>
 
       <li class="dropdown">
         <a href="javascript:void(0)">
@@ -661,7 +661,7 @@
           <i class="ri-checkbox-multiple-blank-line text-xl me-14 d-flex w-auto"></i>
           <span>Blank Page</span>
         </a>
-      </li>
+      </li> --}}
       <li class="dropdown">
         <a href="javascript:void(0)">
           <iconify-icon icon="icon-park-outline:setting-two" class="menu-icon"></iconify-icon>
